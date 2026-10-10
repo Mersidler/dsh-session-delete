@@ -1,0 +1,60 @@
+{
+  "name": "dsh-delete-sessions",
+  "description": "DeepSeek Harness 会话删除插件：侧栏菜单与设置页真正删除磁盘日志（先进回收站可还原），补上官方归档只隐藏不删盘的能力缺口。",
+  "version": "1.0.0",
+  "icon": "icon.svg",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "LICENSE",
+    "README.md",
+    "README.zh.md"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.0-rc.2"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-workspace-controller"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.0-rc.2",
+    "react": "^18.2.0"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mersidler/dsh-session-delete.git"
+  },
+  "homepage": "https://github.com/Mersidler/dsh-session-delete#readme",
+  "bugs": {
+    "url": "https://github.com/Mersidler/dsh-session-delete/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "session-delete",
+    "session-trash"
+  ]
+}
